@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mone_saver/budget.dart';
+import 'package:mone_saver/price.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,6 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //HAHA THIS IS LIKE GOOGLE DOCS
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -71,29 +74,38 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: Text('Budgeting App'),
+        title: const Text('Budgeting App'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
+          const Text(
             'Welcome to the Budgeting App!',
             style: TextStyle(fontSize: 24),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               // Navigate to the budget creation screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BudgetScreen()),
+              );
             },
-            child: Text('Create a Budget'),
+            child: const Text('Create a Budget'),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PriceFindingScreen()),
+              );
               // Navigate to the best price finding screen
             },
-            child: Text('Find the Best Price'),
+            child: const Text('Find the Best Price'),
           ),
         ],
       ),
